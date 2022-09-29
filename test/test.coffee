@@ -19,7 +19,7 @@ minute = =>
 do =>
   console.log u64Bin(1234567890)
   console.log main()
-  #return
+  return
   begin = minute()
   {rss} = process.memoryUsage()
   n = 0
