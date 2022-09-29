@@ -12,15 +12,20 @@ sleep = =>
   new Promise((resolve) => setTimeout(resolve, 10))
 
 do =>
-  {rss} = process.memoryUsage()
   console.log main()
+  {rss} = process.memoryUsage()
   n = 0
+  pre = 0
   loop
     main()
     if n++%10000 == 0
       gc()
       await sleep()
-      console.log(
-        n,
-        Math.round(process.memoryUsage().rss-rss/1024/1024)
-      )
+
+      leak = Math.round((process.memoryUsage().rss-rss)/1024/1024)
+      if leak != pre
+        pre = leak
+        console.log(
+          n,
+          leak
+        )
