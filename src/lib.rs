@@ -1,6 +1,6 @@
 use neon::prelude::*;
 
-fn hello(mut cx: FunctionContext) -> JsResult<JsString> {
+fn run(mut cx: FunctionContext) -> JsResult<JsString> {
     let x = cx.argument::<JsString>(0)?.value(&mut cx);
     let y = cx.argument::<JsString>(1)?.value(&mut cx);
 
@@ -9,6 +9,6 @@ fn hello(mut cx: FunctionContext) -> JsResult<JsString> {
 
 #[neon::main]
 fn main(mut cx: ModuleContext) -> NeonResult<()> {
-    cx.export_function("hello", hello)?;
+    cx.export_function("run", run)?;
     Ok(())
 }
