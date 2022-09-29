@@ -34,3 +34,4 @@ do =>
           n,'loop'
           'leak', leak,'MB'
         )
+  return
