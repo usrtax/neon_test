@@ -1,0 +1,17 @@
+{
+  "name": "rt",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Neon CPU Count",
+  "main": "index.node",
+  "scripts": {
+    "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
+    "install": "npm run build",
+    "test": "cargo test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "cargo-cp-artifact": "^0.1"
+  },
+  "homepage": "https://github.com/neon-bindings/examples#readme"
+}
