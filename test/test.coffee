@@ -17,7 +17,9 @@ minute = =>
   parseInt new Date()/6e4
 
 do =>
+  console.log u64Bin(1234567890)
   console.log main()
+  return
   begin = minute()
   {rss} = process.memoryUsage()
   n = 0
