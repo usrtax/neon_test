@@ -2,8 +2,14 @@
 
 > ..:rt
 
+{
+  u64Bin
+  binU64
+} = rt
+
 main = =>
-  rt.hello(1.5,3.2)
+  binU64 u64Bin(1234567890)
+
 
 sleep = =>
   new Promise((resolve) => setTimeout(resolve, 10))
