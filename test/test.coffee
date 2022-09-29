@@ -20,4 +20,7 @@ do =>
     if n++%10000 == 0
       gc()
       await sleep()
-      console.log(n,process.memoryUsage().rss-rss/1024/1024)
+      console.log(
+        n,
+        Math.round(process.memoryUsage().rss-rss/1024/1024)
+      )
