@@ -1,10 +1,10 @@
 use neon::prelude::*;
 
-fn hello(mut cx: FunctionContext) -> JsResult<JsNumber> {
-    let x = cx.argument::<JsNumber>(0)?.value(&mut cx);
-    let y = cx.argument::<JsNumber>(1)?.value(&mut cx);
+fn hello(mut cx: FunctionContext) -> JsResult<JsString> {
+    let x = cx.argument::<JsString>(0)?.value(&mut cx);
+    let y = cx.argument::<JsString>(1)?.value(&mut cx);
 
-    Ok(cx.number((x + y) as f64))
+    Ok(cx.string(x + &y))
 }
 
 #[neon::main]
