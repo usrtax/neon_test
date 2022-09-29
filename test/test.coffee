@@ -32,5 +32,5 @@ do =>
         console.log(
           minute()-begin,'minute'
           n,'loop'
-          leak
+          'leak', leak,'MB'
         )
