@@ -4,15 +4,19 @@
 
 main = =>
   rt.run(
-    '1.23242425',
-    '3.2323222'
+    'test memoryUsage',
+    'leak or not'
   )
 
 sleep = =>
   new Promise((resolve) => setTimeout(resolve, 10))
 
+minute = =>
+  parseInt new Date()/6e4
+
 do =>
   console.log main()
+  begin = minute()
   {rss} = process.memoryUsage()
   n = 0
   pre = 0
@@ -22,10 +26,11 @@ do =>
       gc()
       await sleep()
 
-      leak = Math.round((process.memoryUsage().rss-rss)/1024/1024)
+      leak = parseInt((process.memoryUsage().rss-rss)/1024/1024)
       if leak != pre
         pre = leak
         console.log(
-          n,
+          minute()-begin,'minute'
+          n,'loop'
           leak
         )
